@@ -52,3 +52,4 @@ def information(message):
         bot.send_message(message.chat.id,"У тебя нет покемона")
 bot.infinity_polling(none_stop=True)
 
+
