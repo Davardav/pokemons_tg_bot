@@ -36,6 +36,13 @@ def attack_pok(message):
     else:
             bot.send_message(message.chat.id, "Чтобы атаковать, нужно ответить на сообщения того, кого хочешь атаковать")
 
-
+@bot.message_handler(commands=['info'])
+def information(message):
+    if message.from_user.username in Pokemon.pokemons.keys():
+        pok = Pokemon.pokemons[message.from_user.username]
+        bot.send_message(message.chat.id, pok.info())
+    else:
+        bot.send_message(message.chat.id,"У тебя нет покемона")
 bot.infinity_polling(none_stop=True)
+
 
